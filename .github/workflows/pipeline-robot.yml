@@ -24,4 +24,4 @@ jobs:
 
       - name: Execução dos teste
         run: |
-            robot -d .\logs \tests\signup.robot
+            robot -d .logs ./tests
