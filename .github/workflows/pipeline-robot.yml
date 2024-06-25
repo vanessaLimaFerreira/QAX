@@ -1,20 +1,16 @@
-name: continuos integration
+name: continuous integration
 
 on: push
 
 jobs:
-    continuos_integration:
-        run-on: ubuntu-latest
+  continuous_integration:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Clonagem projeto
-        user: actions/checkout@v3
+        uses: actions/checkout@v3
       
-        - name: Configuração Python
-        user: actions/setup-python@v2
+      - name: Configuração Python
+        uses: actions/setup-python@v2
         with:
-            python-version: '3.12'
-
-
-
-
+          python-version: '3.12'
