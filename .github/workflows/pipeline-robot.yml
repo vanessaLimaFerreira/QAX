@@ -15,6 +15,12 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Instalação dependencias do projeto
+        run: |
+            pip install robotframework
+            pip install robotframework-browser
+
+
       - name: Execução dos teste
         run: |
             robot -d /logs /tests/signup.robot
