@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-06-28T20:30:19.576998" rpa="false" schemaversion="5">
+<suite id="s1" name="Player" source="C:\QAX\Projects\parodify-robot\player.robot">
+<test id="s1-t1" name="Deve tocar uma musica" line="11">
+<kw name="start session" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-06-28T20:30:20.471334" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 20000.0, "tracesDir": "C:\\QAX\\Projects\\parodify-robot\\logs\\browser\\traces\\e2face03-9cf9-4881-9782-3a1f4fae2ece"}</msg>
+<msg time="2024-06-28T20:30:20.890752" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":20000,"tracesDir":"C:\\QAX\\Projects\\parodify-robot\\logs\\browser\\traces\\e2face03-9cf9-4881-9782-3a1f4fae2ece"}</msg>
+<arg>browser=chromium</arg>
+<arg>headless=False</arg>
+<arg>timeout=20s</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-06-28T20:30:20.467263" elapsed="0.423489"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-06-28T20:30:21.471682" level="INFO">Successfully initialized new page object and opened url: about:black</msg>
+<msg time="2024-06-28T20:30:21.471682" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>about:black</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-06-28T20:30:20.890752" elapsed="0.580930"/>
+</kw>
+<status status="PASS" start="2024-06-28T20:30:20.467263" elapsed="1.004419"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-06-28T20:30:21.471682" level="INFO">${song_name} = Smells Like Test Script</msg>
+<var>${song_name}</var>
+<arg>Smells Like Test Script</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-06-28T20:30:21.471682" elapsed="0.000000"/>
+</kw>
+<kw name="Mock My Song" owner="Browser">
+<msg time="2024-06-28T20:30:21.500105" level="INFO">ok</msg>
+<doc>TODO: Add rfdoc string to exposed function to create documentation</doc>
+<status status="PASS" start="2024-06-28T20:30:21.471682" elapsed="0.036431"/>
+</kw>
+<kw name="Go To" owner="Browser">
+<msg time="2024-06-28T20:30:22.688103" level="INFO">Successfully opened URL https://parodify.vercel.app</msg>
+<arg>https://parodify.vercel.app</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2024-06-28T20:30:21.508113" elapsed="1.188001"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-06-28T20:30:22.850226" level="INFO">Text: 'Fernando Papito'</msg>
+<arg>css=.logged-user</arg>
+<arg>contains</arg>
+<arg>Fernando Papito</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-06-28T20:30:22.697836" elapsed="0.152390"/>
+</kw>
+<kw name="Get play button">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-06-28T20:30:22.850226" level="INFO">${play} = xpath=//div[contains(@class,"song")]//h6[text()="Smells Like Test Script"]/..//button[contains(@class,"play")]</msg>
+<var>${play}</var>
+<arg>xpath=//div[contains(@class,"song")]//h6[text()="${song_name}"]/..//button[contains(@class,"play")]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-06-28T20:30:22.850226" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${song_name}</value>
+<status status="PASS" start="2024-06-28T20:30:22.850226" elapsed="0.000000"/>
+</return>
+<msg time="2024-06-28T20:30:22.850226" level="INFO">${play} = Smells Like Test Script</msg>
+<var>${play}</var>
+<arg>${song_name}</arg>
+<status status="PASS" start="2024-06-28T20:30:22.850226" elapsed="0.000000"/>
+</kw>
+<kw name="Get pause button">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-06-28T20:30:22.850226" level="INFO">${pause} = xpath=//div[contains(@class,"song")]//h6[text()="Smells Like Test Script"]/..//button[contains(@class,"pause")]</msg>
+<var>${pause}</var>
+<arg>xpath=//div[contains(@class,"song")]//h6[text()="${song_name}"]/..//button[contains(@class,"pause")]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-06-28T20:30:22.850226" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${song_name}</value>
+<status status="PASS" start="2024-06-28T20:30:22.850226" elapsed="0.000000"/>
+</return>
+<msg time="2024-06-28T20:30:22.850226" level="INFO">${pause} = Smells Like Test Script</msg>
+<var>${pause}</var>
+<arg>${song_name}</arg>
+<status status="PASS" start="2024-06-28T20:30:22.850226" elapsed="0.000000"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2024-06-28T20:30:22.850226" level="INFO">Clicks the element 'Smells Like Test Script'.</msg>
+<msg time="2024-06-28T20:30:33.223390" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg time="2024-06-28T20:30:33.223390" level="INFO">See also file:///C:/QAX/Projects/parodify-robot/logs/playwright-log.txt for additional details.</msg>
+<msg time="2024-06-28T20:30:33.223390" level="FAIL">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  [2m- waiting for locator('Smells Like Test Script')[22m
+
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<arg>${play}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="FAIL" start="2024-06-28T20:30:22.850226" elapsed="10.381914">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  [2m- waiting for locator('Smells Like Test Script')[22m
+
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>${pause}</arg>
+<arg>visible</arg>
+<arg>3</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2024-06-28T20:30:33.237630" elapsed="0.000000"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>${play}</arg>
+<arg>visible</arg>
+<arg>7</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2024-06-28T20:30:33.238825" elapsed="0.000000"/>
+</kw>
+<kw name="Finish session" type="TEARDOWN">
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2024-06-28T20:30:33.427631" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-06-28T20:30:33.238825" elapsed="0.188806"/>
+</kw>
+<status status="PASS" start="2024-06-28T20:30:33.238825" elapsed="0.188806"/>
+</kw>
+<status status="FAIL" start="2024-06-28T20:30:20.464765" elapsed="12.962866">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  [2m- waiting for locator('Smells Like Test Script')[22m
+
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</test>
+<doc>Acessar site parodify</doc>
+<status status="FAIL" start="2024-06-28T20:30:19.576998" elapsed="14.046455"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Player">Player</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
